@@ -1,0 +1,20 @@
+* how to open bash window inside a container ?
+==> docker exec -it container-name bash
+
+* do I need to copy all files in the container ?
+==> of course no (for example Dockerfile and node_modules)
+
+* why did we split package.json copy command ?
+==> to avoid running npm install in each copy (step still cached)
+
+******* section 3 **********
+- local development and hot reload
+
+
+****** docker volume *******
+- bind mount
+- anonymous
+
+
+******* docker compose ******
+- 

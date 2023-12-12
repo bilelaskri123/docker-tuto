@@ -1,11 +1,17 @@
 version: "3"
 services:
   node-app:
-    container_name: express-node-app-container
-    ports:
-      - "3000:3000"
+    image: askribilel09/node-express
     env_file:
       - ./.env
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on_failure
+        delay: 5s
     depends_on:
       - mongo
       - redis

@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const redis = require("redis");
+const os = require('os');
 const app = express();
 const PORT = 3000;
 
@@ -30,6 +31,7 @@ app.get("/data", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
+  console.log(`trafic from ${os.hostname}`);
   redisClient.set("products", "products...");
   res.send("<h1>Hello docker tuto</h1>");
 });
